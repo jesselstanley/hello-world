@@ -4,29 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claude for Customer Success · Suunto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    /* ── Reset & base ── */
+    /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #f7f7f7;
+      font-family: 'Raleway', sans-serif;
+      background: #f4f4f4;
       color: #1a1a1a;
-      line-height: 1.6;
+      line-height: 1.65;
     }
     a { color: inherit; text-decoration: none; }
 
-    /* ── Colour tokens ── */
+    /* ── Tokens ── */
     :root {
-      --red:    #e8471a;
-      --red-d:  #c73a13;
-      --dark:   #111111;
-      --mid:    #333333;
-      --light:  #f7f7f7;
-      --white:  #ffffff;
-      --border: #e0e0e0;
-      --tag-bg: #fff3ef;
-      --tag-c:  #c73a13;
+      --red:      #CC0000;
+      --red-d:    #a80000;
+      --red-bg:   #fff2f2;
+      --black:    #111111;
+      --dark:     #2a2a2a;
+      --mid:      #555555;
+      --muted:    #888888;
+      --bg:       #f4f4f4;
+      --white:    #ffffff;
+      --border:   #e2e2e2;
+      --card-bg:  #ffffff;
     }
 
     /* ── Nav ── */
@@ -34,192 +39,223 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--dark);
+      background: var(--white);
+      border-bottom: 3px solid var(--red);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2rem;
-      height: 60px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.4);
+      padding: 0 2.5rem;
+      height: 64px;
+      box-shadow: 0 1px 8px rgba(0,0,0,.08);
     }
-    .nav-brand {
+    .nav-logo {
       display: flex;
       align-items: center;
-      gap: .6rem;
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--white);
-      letter-spacing: .02em;
+      gap: 1rem;
     }
-    .nav-brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--red); }
+    /* Suunto wordmark — inline SVG */
+    .suunto-wordmark {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .suunto-wordmark svg { display: block; }
+    .nav-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+      margin: 0 1rem;
+    }
+    .nav-subtitle {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
     .nav-links {
       display: flex;
       gap: 1.8rem;
       list-style: none;
     }
     .nav-links a {
-      color: #ccc;
-      font-size: .88rem;
-      font-weight: 500;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--mid);
       transition: color .2s;
     }
     .nav-links a:hover { color: var(--red); }
 
     /* ── Hero ── */
     .hero {
-      background: linear-gradient(135deg, #111 0%, #2a2a2a 60%, #1a0a06 100%);
-      color: var(--white);
-      padding: 5rem 2rem 4rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 5.5rem 2rem 5rem;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(232,71,26,.18) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-tag {
-      display: inline-block;
-      background: rgba(232,71,26,.15);
-      border: 1px solid rgba(232,71,26,.4);
-      color: #f4a588;
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .08em;
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--red-bg);
+      border: 1px solid rgba(204,0,0,.2);
+      color: var(--red-d);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .1em;
       text-transform: uppercase;
-      padding: .35rem .9rem;
+      padding: .35rem 1rem;
       border-radius: 2rem;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.6rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--red);
     }
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-size: clamp(2.1rem, 5vw, 3.4rem);
       font-weight: 800;
-      line-height: 1.15;
-      max-width: 700px;
-      margin: 0 auto .8rem;
+      line-height: 1.12;
+      color: var(--black);
+      max-width: 720px;
+      margin: 0 auto .9rem;
+      letter-spacing: -.02em;
     }
-    .hero h1 span { color: var(--red); }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--red);
+    }
     .hero p {
-      font-size: 1.12rem;
-      color: #bbb;
-      max-width: 560px;
-      margin: 0 auto 2.2rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--mid);
+      max-width: 520px;
+      margin: 0 auto 2.4rem;
     }
-    .hero-cta {
+    .btn-red {
       display: inline-flex;
       align-items: center;
       gap: .5rem;
       background: var(--red);
       color: var(--white);
-      font-weight: 700;
-      font-size: .95rem;
-      padding: .85rem 2rem;
-      border-radius: 3rem;
-      transition: background .2s, transform .15s;
-      box-shadow: 0 4px 20px rgba(232,71,26,.35);
-    }
-    .hero-cta:hover { background: var(--red-d); transform: translateY(-2px); }
-    .hero-wave {
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      line-height: 0;
-    }
-
-    /* ── Sections ── */
-    section { padding: 4rem 1.5rem; }
-    .container { max-width: 880px; margin: 0 auto; }
-    .section-label {
-      display: inline-block;
-      background: var(--tag-bg);
-      color: var(--tag-c);
-      font-size: .75rem;
-      font-weight: 700;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: .85rem;
       letter-spacing: .07em;
       text-transform: uppercase;
-      padding: .3rem .8rem;
-      border-radius: 2rem;
-      margin-bottom: .8rem;
+      padding: .9rem 2.2rem;
+      border-radius: 2px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      box-shadow: 0 4px 16px rgba(204,0,0,.25);
+    }
+    .btn-red:hover { background: var(--red-d); transform: translateY(-1px); }
+
+    /* ── Section shell ── */
+    section { padding: 4.5rem 1.5rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      background: var(--red-bg);
+      color: var(--red-d);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .28rem .8rem;
+      border-radius: 2px;
+      margin-bottom: .9rem;
+      border-left: 3px solid var(--red);
     }
     h2 {
-      font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
       font-weight: 800;
+      letter-spacing: -.01em;
       line-height: 1.2;
       margin-bottom: .6rem;
+      color: var(--black);
     }
     .section-intro {
-      color: #555;
-      font-size: 1rem;
-      margin-bottom: 2.4rem;
-      max-width: 620px;
+      font-size: .97rem;
+      font-weight: 500;
+      color: var(--mid);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
     }
 
-    /* ── Card grid ── */
+    /* ── Alt backgrounds ── */
+    .bg-white  { background: var(--white); }
+    .bg-light  { background: var(--bg); }
+    .bg-black  { background: var(--black); }
+    .bg-black h2, .bg-black .section-label { color: var(--white); }
+    .bg-black .section-label { background: rgba(255,255,255,.08); color: #f99; border-color: var(--red); }
+    .bg-black .section-intro { color: #aaa; }
+
+    /* ── Cards ── */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
     }
     .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.5rem;
-      transition: box-shadow .2s, transform .2s;
+      background: var(--card-bg);
+      padding: 1.6rem;
     }
-    .card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.09); transform: translateY(-3px); }
-    .card-icon {
-      font-size: 1.8rem;
-      margin-bottom: .8rem;
-    }
-    .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
-    .card p { font-size: .9rem; color: #555; }
+    .bg-black .card { background: #1e1e1e; border-color: #333; }
+    .bg-black .card-grid { background: #333; border-color: #333; }
+    .bg-black .card h3 { color: var(--white); }
+    .bg-black .card p  { color: #aaa; }
+    .card-icon { font-size: 1.6rem; margin-bottom: .7rem; }
+    .card h3 { font-size: .95rem; font-weight: 700; margin-bottom: .35rem; letter-spacing: .01em; }
+    .card p  { font-size: .88rem; color: var(--mid); }
 
-    /* ── Step list ── */
-    .steps { display: flex; flex-direction: column; gap: 1.2rem; }
+    /* ── Steps ── */
+    .steps { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
     .step {
       display: flex;
-      gap: 1.1rem;
+      gap: 1.2rem;
       background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.4rem;
+      padding: 1.5rem 1.6rem;
+      align-items: flex-start;
     }
     .step-num {
       flex-shrink: 0;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+      width: 32px;
+      height: 32px;
       background: var(--red);
       color: var(--white);
       font-weight: 800;
-      font-size: .95rem;
+      font-size: .85rem;
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 2px;
     }
-    .step h3 { font-size: .97rem; font-weight: 700; margin-bottom: .25rem; }
-    .step p { font-size: .9rem; color: #555; }
-    .step a { color: var(--red); font-weight: 600; }
+    .step h3 { font-size: .95rem; font-weight: 700; margin-bottom: .25rem; }
+    .step p  { font-size: .9rem; color: var(--mid); }
+    .step a  { color: var(--red); font-weight: 700; }
     .step a:hover { text-decoration: underline; }
 
     /* ── Prompt templates ── */
-    .prompt-cards { display: flex; flex-direction: column; gap: 1.6rem; }
+    .prompt-list { display: flex; flex-direction: column; gap: 1.5rem; }
     .prompt-card {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
+      border-top: 3px solid var(--red);
     }
-    .prompt-card-header {
+    .prompt-card-hd {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 1.4rem;
+      padding: .9rem 1.4rem;
       border-bottom: 1px solid var(--border);
       background: #fafafa;
     }
@@ -228,175 +264,150 @@
       align-items: center;
       gap: .6rem;
       font-weight: 700;
-      font-size: .97rem;
+      font-size: .93rem;
     }
-    .prompt-card-title .icon { font-size: 1.1rem; }
     .copy-btn {
       background: var(--red);
       color: var(--white);
       border: none;
-      border-radius: 6px;
-      font-size: .78rem;
-      font-weight: 600;
-      padding: .35rem .8rem;
+      border-radius: 2px;
+      font-family: 'Raleway', sans-serif;
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .3rem .8rem;
       cursor: pointer;
       transition: background .2s;
     }
-    .copy-btn:hover { background: var(--red-d); }
-    .copy-btn.copied { background: #2d8a4e; }
+    .copy-btn:hover    { background: var(--red-d); }
+    .copy-btn.copied   { background: #1f7a45; }
     .prompt-body {
       padding: 1.2rem 1.4rem;
       font-size: .9rem;
-      line-height: 1.7;
+      line-height: 1.75;
       color: #333;
       white-space: pre-wrap;
       word-break: break-word;
     }
-    .prompt-body .placeholder {
-      background: #fff3ef;
-      border: 1px solid #f4c5b0;
-      border-radius: 4px;
-      padding: .05rem .35rem;
+    .ph {
+      background: var(--red-bg);
+      border: 1px solid rgba(204,0,0,.2);
+      border-radius: 3px;
+      padding: .05rem .38rem;
       font-style: italic;
-      color: #c73a13;
+      color: var(--red-d);
       font-size: .85rem;
     }
     .prompt-note {
-      padding: .6rem 1.4rem 1rem;
+      padding: .5rem 1.4rem 1rem;
       font-size: .82rem;
-      color: #777;
+      color: var(--muted);
       font-style: italic;
     }
 
     /* ── Tips ── */
     .tips-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.1rem;
-    }
-    .tip {
-      background: var(--white);
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.2rem;
+      margin-bottom: 2.5rem;
     }
-    .tip-emoji { font-size: 1.5rem; margin-bottom: .5rem; }
-    .tip h3 { font-size: .93rem; font-weight: 700; margin-bottom: .3rem; }
-    .tip p { font-size: .87rem; color: #555; }
+    .tip { background: var(--white); padding: 1.3rem; }
+    .tip-icon { font-size: 1.4rem; margin-bottom: .5rem; }
+    .tip h3 { font-size: .9rem; font-weight: 700; margin-bottom: .3rem; }
+    .tip p  { font-size: .86rem; color: var(--mid); }
 
     /* ── Do / Don't ── */
-    .do-dont {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-    }
-    @media (max-width: 580px) { .do-dont { grid-template-columns: 1fr; } }
-    .do-box, .dont-box {
-      border-radius: 12px;
-      padding: 1.3rem;
-    }
-    .do-box {
-      background: #f0faf4;
-      border: 1px solid #a3d9b5;
-    }
-    .dont-box {
-      background: #fff5f3;
-      border: 1px solid #f4b5a8;
-    }
-    .do-box h3 { color: #1f7a45; font-size: .95rem; margin-bottom: .7rem; }
-    .dont-box h3 { color: #c0392b; font-size: .95rem; margin-bottom: .7rem; }
-    .do-box ul, .dont-box ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-    }
-    .do-box li::before { content: "✓ "; color: #1f7a45; font-weight: 700; }
-    .dont-box li::before { content: "✗ "; color: #c0392b; font-weight: 700; }
-    .do-box li, .dont-box li { font-size: .9rem; color: #333; }
+    .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    @media (max-width: 560px) { .do-dont { grid-template-columns: 1fr; } }
+    .do-box, .dont-box { padding: 1.4rem; border-radius: 2px; }
+    .do-box   { background: #f0faf4; border: 1px solid #a8d8b9; }
+    .dont-box { background: #fff5f5; border: 1px solid #f5b8b8; }
+    .do-box h3   { color: #1a6636; font-size: .9rem; font-weight: 800; margin-bottom: .8rem; letter-spacing: .05em; text-transform: uppercase; }
+    .dont-box h3 { color: #8a1a1a; font-size: .9rem; font-weight: 800; margin-bottom: .8rem; letter-spacing: .05em; text-transform: uppercase; }
+    .do-box ul, .dont-box ul { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .do-box li::before   { content: "✓  "; color: #1a6636; font-weight: 800; }
+    .dont-box li::before { content: "✗  "; color: #8a1a1a; font-weight: 800; }
+    .do-box li, .dont-box li { font-size: .88rem; }
 
     /* ── Practice ── */
-    .practice-cards {
+    .practice-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
-    }
-    .practice-card {
-      background: var(--white);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.5rem;
     }
-    .practice-card .tag {
+    .practice-card { background: var(--white); padding: 1.5rem; }
+    .level {
       display: inline-block;
-      background: var(--tag-bg);
-      color: var(--tag-c);
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .05em;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .08em;
       text-transform: uppercase;
-      padding: .2rem .6rem;
-      border-radius: 2rem;
+      padding: .22rem .65rem;
+      border-radius: 2px;
       margin-bottom: .7rem;
     }
-    .practice-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: .5rem; }
-    .practice-card p { font-size: .87rem; color: #555; margin-bottom: .9rem; }
-    .practice-card .scenario {
-      background: #f7f7f7;
-      border-radius: 8px;
-      padding: .8rem;
+    .level-beginner      { background: #e8f5e9; color: #2e7d32; }
+    .level-intermediate  { background: #fff3e0; color: #e65100; }
+    .level-advanced      { background: #fce4ec; color: #880e4f; }
+    .practice-card h3 { font-size: .93rem; font-weight: 700; margin-bottom: .45rem; }
+    .practice-card p  { font-size: .86rem; color: var(--mid); margin-bottom: .9rem; }
+    .scenario {
+      background: var(--bg);
+      border-left: 3px solid var(--red);
+      padding: .75rem 1rem;
       font-size: .83rem;
       color: #444;
       font-style: italic;
-      border-left: 3px solid var(--red);
     }
 
     /* ── Footer ── */
     footer {
-      background: var(--dark);
-      color: #888;
+      background: var(--black);
+      color: #666;
       text-align: center;
-      padding: 2rem 1.5rem;
-      font-size: .85rem;
+      padding: 2.5rem 1.5rem;
+      font-size: .82rem;
+      letter-spacing: .03em;
     }
-    footer strong { color: var(--white); }
-
-    /* ── Alt bg ── */
-    .bg-white { background: var(--white); }
-    .bg-light { background: var(--light); }
-    .bg-dark {
-      background: linear-gradient(135deg, #111 0%, #1d1d1d 100%);
-      color: var(--white);
+    footer .logo-row {
+      margin-bottom: .8rem;
     }
-    .bg-dark h2 { color: var(--white); }
-    .bg-dark .section-intro { color: #aaa; }
-    .bg-dark .card { background: #1e1e1e; border-color: #333; }
-    .bg-dark .card h3 { color: var(--white); }
-    .bg-dark .card p { color: #aaa; }
+    footer strong { color: #ccc; }
+    footer .red { color: var(--red); }
 
-    /* ── Responsive ── */
-    @media (max-width: 600px) {
+    /* ── Responsive nav ── */
+    @media (max-width: 640px) {
       nav { padding: 0 1rem; }
-      .nav-links { gap: 1rem; }
-      .nav-links li:nth-child(n+4) { display: none; }
+      .nav-links { display: none; }
       section { padding: 3rem 1rem; }
+      .hero { padding: 4rem 1rem 3.5rem; }
     }
-
-    /* ── Scroll highlight ── */
     :target { scroll-margin-top: 70px; }
   </style>
 </head>
 <body>
 
-<!-- ── Navigation ── -->
+<!-- ══ NAV ══ -->
 <nav>
-  <div class="nav-brand">
-    <span class="dot"></span>
-    Claude × Suunto CS
+  <div class="nav-logo">
+    <!-- Suunto wordmark SVG -->
+    <div class="suunto-wordmark">
+      <svg width="120" height="22" viewBox="0 0 120 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Suunto">
+        <text x="0" y="18" font-family="Raleway, sans-serif" font-weight="900" font-size="20" fill="#111111" letter-spacing="3">SUUNTO</text>
+      </svg>
+    </div>
+    <div class="nav-divider"></div>
+    <span class="nav-subtitle">Customer Success</span>
   </div>
   <ul class="nav-links">
     <li><a href="#what-is-claude">What is Claude?</a></li>
-    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#getting-started">Start Here</a></li>
     <li><a href="#use-cases">Use Cases</a></li>
     <li><a href="#templates">Templates</a></li>
     <li><a href="#tips">Tips</a></li>
@@ -404,437 +415,470 @@
   </ul>
 </nav>
 
-<!-- ── Hero ── -->
+<!-- ══ HERO ══ -->
 <div class="hero">
-  <div class="hero-tag">Your personal AI assistant</div>
-  <h1>Use <span>Claude</span> to be a<br/>Customer Success superstar</h1>
-  <p>A step-by-step guide built just for you — with real Suunto examples you can use today.</p>
-  <a href="#what-is-claude" class="hero-cta">Let's get started →</a>
-  <div class="hero-wave">
-    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#f7f7f7"/>
-    </svg>
-  </div>
+  <div class="hero-eyebrow">Your AI toolkit for Customer Success</div>
+  <h1>Use <em>Claude</em> to deliver<br/>world-class support at Suunto</h1>
+  <p>A practical guide built around your role — real tasks, real templates, real Suunto scenarios.</p>
+  <a href="#what-is-claude" class="btn-red">Get started →</a>
 </div>
 
-<!-- ── What is Claude ── -->
-<section id="what-is-claude" class="bg-light">
+<!-- ══ WHAT IS CLAUDE ══ -->
+<section id="what-is-claude" class="bg-white">
   <div class="container">
     <span class="section-label">Chapter 1</span>
     <h2>What is Claude?</h2>
     <p class="section-intro">
-      Claude is an AI assistant made by Anthropic. Think of it as a brilliant, endlessly patient colleague
-      who never gets tired, always has time for you, and can help with nearly any writing or thinking task.
+      Claude is an AI assistant made by Anthropic. Think of it as a brilliant, endlessly patient colleague who never gets tired and can help with nearly any writing, thinking, or research task.
     </p>
     <div class="card-grid">
       <div class="card">
         <div class="card-icon">✍️</div>
         <h3>Writes for you</h3>
-        <p>Drafts emails, summaries, and responses in seconds — in your voice, at your level of formality.</p>
+        <p>Drafts emails, case notes, summaries, and responses in seconds — in your voice and at the right tone.</p>
       </div>
       <div class="card">
         <div class="card-icon">🧠</div>
         <h3>Thinks with you</h3>
-        <p>Helps you figure out how to handle a tricky customer, what to say, or how to escalate an issue.</p>
+        <p>Helps you figure out how to handle a tricky customer, what to offer, or how to escalate an issue clearly.</p>
       </div>
       <div class="card">
         <div class="card-icon">🌍</div>
         <h3>Translates instantly</h3>
-        <p>Suunto customers come from everywhere. Claude reads and replies in dozens of languages.</p>
+        <p>Suunto customers are global. Claude reads and replies in Finnish, German, Japanese, French, and many more.</p>
       </div>
       <div class="card">
         <div class="card-icon">🔒</div>
         <h3>No memory between chats</h3>
-        <p>Each new conversation starts fresh. Don't paste confidential customer data without approval from your company.</p>
+        <p>Each conversation starts fresh. Replace real customer names and order numbers with placeholders when needed.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Getting Started ── -->
-<section id="getting-started" class="bg-white">
+<!-- ══ GETTING STARTED ══ -->
+<section id="getting-started" class="bg-light">
   <div class="container">
     <span class="section-label">Chapter 2</span>
     <h2>Getting Started in 4 Steps</h2>
-    <p class="section-intro">You can be up and running in under five minutes.</p>
+    <p class="section-intro">Up and running in under five minutes — no downloads, no setup.</p>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div>
           <h3>Open Claude</h3>
-          <p>Go to <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> in any web browser. No app to download. Works on your phone, tablet, or computer.</p>
+          <p>Go to <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> in any browser. Works on your phone, tablet, or computer.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div>
-          <h3>Create a free account</h3>
-          <p>Sign up with your email. The free plan is plenty to get started. If Suunto provides a paid plan, use that email instead.</p>
+          <h3>Sign in or create a free account</h3>
+          <p>Use your work email if Suunto provides a team plan, otherwise a free personal account works great to start.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div>
           <h3>Type your request in the chat box</h3>
-          <p>This is called a <strong>prompt</strong>. Just write what you need, like you'd text a knowledgeable friend. No special commands needed.</p>
+          <p>This is called a <strong>prompt</strong>. Write what you need as if texting a knowledgeable colleague. No special commands needed.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
         <div>
-          <h3>Read the reply — then refine it</h3>
-          <p>If the first answer isn't quite right, just say so: <em>"Make it shorter"</em>, <em>"Sound more friendly"</em>, or <em>"Add information about the warranty."</em> You're in charge.</p>
+          <h3>Read it — then refine it</h3>
+          <p>If the first answer isn't right, just say: <em>"Make it shorter,"</em> <em>"More formal please,"</em> or <em>"Add the warranty policy."</em> You're always in control.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Use Cases ── -->
-<section id="use-cases" class="bg-dark">
+<!-- ══ USE CASES ══ -->
+<section id="use-cases" class="bg-black">
   <div class="container">
-    <span class="section-label" style="background:rgba(232,71,26,.2);color:#f4a588;border:1px solid rgba(232,71,26,.3);">Chapter 3</span>
-    <h2>What You Can Do with Claude at Suunto</h2>
-    <p class="section-intro">Real tasks, real time savings — every single day.</p>
+    <span class="section-label">Chapter 3</span>
+    <h2>What You Can Do with Claude</h2>
+    <p class="section-intro">Real tasks across the full Customer Success lifecycle — from first contact to retention.</p>
     <div class="card-grid">
       <div class="card">
         <div class="card-icon">📧</div>
         <h3>Draft customer replies</h3>
-        <p>Paste a customer email, tell Claude the situation, and get a professional response in 10 seconds.</p>
+        <p>Paste an email, describe the issue, and get a professional response in 10 seconds.</p>
       </div>
       <div class="card">
         <div class="card-icon">🔄</div>
-        <h3>Follow-up emails</h3>
-        <p>After resolving an issue, Claude writes the perfect follow-up to make sure the customer feels valued.</p>
+        <h3>Write follow-up emails</h3>
+        <p>After closing a ticket, Claude drafts the perfect check-in to leave a lasting positive impression.</p>
       </div>
       <div class="card">
         <div class="card-icon">📋</div>
-        <h3>Summarise long tickets</h3>
-        <p>Paste a thread of emails or notes and ask Claude for a 3-bullet summary before jumping on a call.</p>
+        <h3>Summarise tickets</h3>
+        <p>Paste a long email thread and get a 3-bullet summary — perfect prep before a customer call.</p>
       </div>
       <div class="card">
         <div class="card-icon">🌐</div>
         <h3>Translate messages</h3>
-        <p>Finnish, German, Japanese, French — paste the customer message and ask "What does this say?"</p>
+        <p>Finnish, German, Japanese, French — paste the message and ask "What does this say?"</p>
       </div>
       <div class="card">
         <div class="card-icon">🚀</div>
-        <h3>Write escalation notes</h3>
-        <p>Need to hand a case to the engineering team? Claude turns your rough notes into a clear, structured brief.</p>
+        <h3>Write escalation briefs</h3>
+        <p>Turn rough notes into structured briefs for engineering or operations teams.</p>
       </div>
       <div class="card">
         <div class="card-icon">📖</div>
         <h3>Explain product features</h3>
-        <p>Ask Claude to explain GPS tracking, training load, or dive modes in simple language for a confused customer.</p>
+        <p>Ask Claude to explain FusedTrack GPS, Training Load, or dive modes in plain language for customers.</p>
       </div>
       <div class="card">
         <div class="card-icon">💬</div>
         <h3>Handle difficult customers</h3>
-        <p>Tell Claude the situation and ask: "Help me respond calmly and professionally to this frustrated customer."</p>
+        <p>Describe the situation and ask: "Help me respond calmly and professionally to this frustrated customer."</p>
       </div>
       <div class="card">
         <div class="card-icon">📝</div>
-        <h3>Create internal notes</h3>
-        <p>Turn a messy conversation into clean, structured case notes that your whole team can follow.</p>
+        <h3>Log CRM case notes</h3>
+        <p>Turn messy post-call notes into clean, structured entries ready to paste into Salesforce or Zendesk.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Support B2B partners</h3>
+        <p>Draft professional communications to retailers, distributors, and wholesale partners.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Analyse feedback patterns</h3>
+        <p>Paste customer feedback and ask Claude to identify the top 3 recurring themes or complaints.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <h3>Build knowledge base content</h3>
+        <p>Turn a solved case into a clear FAQ article that helps prevent the same question next time.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Proactive outreach</h3>
+        <p>Draft personalised check-in messages to at-risk accounts or post-purchase onboarding flows.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Templates ── -->
+<!-- ══ TEMPLATES ══ -->
 <section id="templates" class="bg-light">
   <div class="container">
     <span class="section-label">Chapter 4</span>
     <h2>Ready-to-Use Prompt Templates</h2>
     <p class="section-intro">
-      Copy any template, fill in the <span style="background:#fff3ef;border:1px solid #f4c5b0;border-radius:4px;padding:.05rem .35rem;font-style:italic;color:#c73a13;font-size:.85rem;">highlighted parts</span>, paste into Claude, and hit send.
+      Copy any template, fill in the <span class="ph">highlighted parts</span>, paste into Claude, and hit send.
     </p>
-    <div class="prompt-cards">
+    <div class="prompt-list">
 
       <!-- 1 -->
       <div class="prompt-card">
-        <div class="prompt-card-header">
-          <div class="prompt-card-title"><span class="icon">📧</span> Reply to a customer complaint</div>
-          <button class="copy-btn" onclick="copyPrompt(this, 1)">Copy</button>
+        <div class="prompt-card-hd">
+          <div class="prompt-card-title">📧 Reply to a customer complaint</div>
+          <button class="copy-btn" onclick="copyPrompt(this,1)">Copy</button>
         </div>
-        <div class="prompt-body" id="p1">You are a professional and friendly Customer Success specialist at Suunto, a Finnish sports technology company known for GPS watches, dive computers, and outdoor gear.
+        <div class="prompt-body" id="p1">You are a professional and friendly Customer Success specialist at Suunto, a Finnish sports technology company known for GPS watches, dive computers, and outdoor equipment.
 
 A customer has sent the following message:
-"<span class="placeholder">[Paste the customer's message here]</span>"
+"<span class="ph">[Paste the customer's message here]</span>"
 
-Their order/case details: <span class="placeholder">[e.g. Suunto 9 Peak Pro, purchased 3 months ago, warranty issue]</span>
+Product and case details: <span class="ph">[e.g. Suunto 9 Peak Pro, purchased 3 months ago, GPS not locking]</span>
 
-Please write a warm, empathetic reply that:
-- Acknowledges their frustration
-- Explains what we will do to help
-- Gives a clear next step
+Write a warm, empathetic reply that:
+- Acknowledges their frustration sincerely
+- Explains the next step we will take
+- Gives a clear timeline or expectation
 - Closes in a positive, brand-appropriate way
 
-Keep it concise — under 150 words.</div>
-        <div class="prompt-note">Tip: After Claude replies, you can say "Make it more formal" or "Add a line about our 2-year warranty."</div>
+Keep it under 150 words. Professional but human.</div>
+        <div class="prompt-note">After Claude replies, try: "Make it more empathetic" or "Add a line about our 2-year warranty."</div>
       </div>
 
       <!-- 2 -->
       <div class="prompt-card">
-        <div class="prompt-card-header">
-          <div class="prompt-card-title"><span class="icon">🌐</span> Translate a customer message</div>
-          <button class="copy-btn" onclick="copyPrompt(this, 2)">Copy</button>
+        <div class="prompt-card-hd">
+          <div class="prompt-card-title">🌐 Translate a customer message</div>
+          <button class="copy-btn" onclick="copyPrompt(this,2)">Copy</button>
         </div>
-        <div class="prompt-body" id="p2">Translate the following customer message into English. Then, in 2–3 bullet points, summarise the main issue or question they have.
+        <div class="prompt-body" id="p2">Translate the following customer message into English. Then give me a 2–3 bullet summary of their main issue or question.
 
 Customer message:
-"<span class="placeholder">[Paste the foreign-language message here]</span>"</div>
-        <div class="prompt-note">Works for Finnish, German, Japanese, French, Spanish, and many more languages automatically.</div>
+"<span class="ph">[Paste the message here]</span>"</div>
+        <div class="prompt-note">Works automatically for Finnish, German, Japanese, French, Spanish, Chinese, and many more languages.</div>
       </div>
 
       <!-- 3 -->
       <div class="prompt-card">
-        <div class="prompt-card-header">
-          <div class="prompt-card-title"><span class="icon">📋</span> Summarise a long email thread</div>
-          <button class="copy-btn" onclick="copyPrompt(this, 3)">Copy</button>
+        <div class="prompt-card-hd">
+          <div class="prompt-card-title">📋 Summarise a long email thread</div>
+          <button class="copy-btn" onclick="copyPrompt(this,3)">Copy</button>
         </div>
         <div class="prompt-body" id="p3">Below is an email thread between a Suunto customer and our support team. Please give me:
-1. A 2–3 sentence summary of the issue
+1. A 2–3 sentence summary of the core issue
 2. What has already been tried or offered
-3. What the current status / outstanding action is
+3. Current status and any outstanding action needed
 
 Email thread:
-"<span class="placeholder">[Paste the full email thread here]</span>"</div>
-        <div class="prompt-note">Great to run before jumping on a call — so you walk in fully prepared.</div>
+"<span class="ph">[Paste the full thread here]</span>"</div>
+        <div class="prompt-note">Run this before a customer call so you walk in fully prepared — even on complex, multi-week cases.</div>
       </div>
 
       <!-- 4 -->
       <div class="prompt-card">
-        <div class="prompt-card-header">
-          <div class="prompt-card-title"><span class="icon">🚀</span> Write an escalation brief</div>
-          <button class="copy-btn" onclick="copyPrompt(this, 4)">Copy</button>
+        <div class="prompt-card-hd">
+          <div class="prompt-card-title">🚀 Write an escalation brief</div>
+          <button class="copy-btn" onclick="copyPrompt(this,4)">Copy</button>
         </div>
-        <div class="prompt-body" id="p4">I need to escalate a customer case to our engineering/product team at Suunto. Here are my rough notes:
+        <div class="prompt-body" id="p4">I need to escalate a customer case to our engineering or operations team at Suunto. Here are my notes:
 
-Customer: <span class="placeholder">[Name or case ID]</span>
-Product: <span class="placeholder">[e.g. Suunto Vertical, firmware 2.1.7]</span>
-Issue: <span class="placeholder">[Describe what's happening in your own words]</span>
-Steps already taken: <span class="placeholder">[e.g. factory reset, reinstalled app, replaced watch]</span>
+Customer / Case ID: <span class="ph">[Name or ID — anonymise if needed]</span>
+Product: <span class="ph">[e.g. Suunto Vertical, firmware 2.1.7]</span>
+Issue: <span class="ph">[Describe in your own words]</span>
+Steps already taken: <span class="ph">[e.g. factory reset, app reinstall, warranty swap offered]</span>
 
-Please turn these notes into a clear, structured escalation brief that a technical team can act on. Include a suggested severity level (Low / Medium / High).</div>
-        <div class="prompt-note">This saves you 20+ minutes every time you need to escalate a complex case.</div>
+Turn these into a clear, structured escalation brief a technical team can act on. Include a suggested severity: Low / Medium / High / Critical.</div>
+        <div class="prompt-note">Saves 20+ minutes every time you escalate. The team gets everything they need on the first read.</div>
       </div>
 
       <!-- 5 -->
       <div class="prompt-card">
-        <div class="prompt-card-header">
-          <div class="prompt-card-title"><span class="icon">💬</span> Handle a frustrated customer</div>
-          <button class="copy-btn" onclick="copyPrompt(this, 5)">Copy</button>
+        <div class="prompt-card-hd">
+          <div class="prompt-card-title">💬 De-escalate a frustrated customer</div>
+          <button class="copy-btn" onclick="copyPrompt(this,5)">Copy</button>
         </div>
-        <div class="prompt-body" id="p5">I'm a Customer Success specialist at Suunto and I have a very frustrated customer. Here's what happened:
+        <div class="prompt-body" id="p5">I'm a Customer Success specialist at Suunto dealing with a very upset customer. Here's the situation:
 
-"<span class="placeholder">[Describe the situation in your own words — e.g. their watch stopped working during a race, they had to return it twice, they feel ignored]</span>"
+"<span class="ph">[Describe what happened — e.g. watch stopped working mid-race, returned twice, customer feels ignored]</span>"
 
 Please help me:
-1. Draft a sincere apology that doesn't sound scripted
-2. Suggest 2–3 things I could offer to make this right (within reasonable CS authority)
-3. Give me a one-sentence "de-escalation line" I can use if they call instead of email</div>
-        <div class="prompt-note">Remember: you decide what to actually offer. Claude is brainstorming ideas, not making promises.</div>
+1. Draft a sincere apology that doesn't sound scripted or corporate
+2. Suggest 2–3 things I could offer to make this right (within normal CS authority)
+3. Write one short "de-escalation line" I could use if they call instead of email</div>
+        <div class="prompt-note">Remember: you decide what to actually offer. Claude is brainstorming — not making commitments on your behalf.</div>
       </div>
 
       <!-- 6 -->
       <div class="prompt-card">
-        <div class="prompt-card-header">
-          <div class="prompt-card-title"><span class="icon">📖</span> Explain a Suunto feature simply</div>
-          <button class="copy-btn" onclick="copyPrompt(this, 6)">Copy</button>
+        <div class="prompt-card-hd">
+          <div class="prompt-card-title">📝 Log clean CRM case notes</div>
+          <button class="copy-btn" onclick="copyPrompt(this,6)">Copy</button>
         </div>
-        <div class="prompt-body" id="p6">A customer has asked me to explain the following Suunto feature. They are not very technical, so please use simple, everyday language with no jargon.
-
-Feature to explain: <span class="placeholder">[e.g. Training Load, FusedTrack GPS, Body Battery, Dive Planner, route navigation]</span>
-
-Also give me one real-world example of how this feature helps an athlete or outdoor enthusiast in practice.</div>
-        <div class="prompt-note">You can then paste Claude's explanation directly into your reply (after reading it over yourself!).</div>
-      </div>
-
-      <!-- 7 -->
-      <div class="prompt-card">
-        <div class="prompt-card-header">
-          <div class="prompt-card-title"><span class="icon">🔄</span> Write a follow-up email</div>
-          <button class="copy-btn" onclick="copyPrompt(this, 7)">Copy</button>
-        </div>
-        <div class="prompt-body" id="p7">I recently resolved a support case for a Suunto customer. Please write a short, friendly follow-up email to check in on them.
-
-Situation: <span class="placeholder">[e.g. We replaced their Suunto 5 Peak under warranty. It arrived 3 days ago.]</span>
-Customer's name: <span class="placeholder">[First name]</span>
-Tone: warm but professional
-
-The email should:
-- Ask if everything is working well with the new device
-- Invite them to reach out if they need anything
-- Be under 80 words</div>
-        <div class="prompt-note">A simple follow-up email dramatically increases customer satisfaction scores.</div>
-      </div>
-
-      <!-- 8 -->
-      <div class="prompt-card">
-        <div class="prompt-card-header">
-          <div class="prompt-card-title"><span class="icon">📝</span> Write case notes</div>
-          <button class="copy-btn" onclick="copyPrompt(this, 8)">Copy</button>
-        </div>
-        <div class="prompt-body" id="p8">Please turn my rough notes into clean, structured case notes for our CRM system. Use short, factual sentences.
+        <div class="prompt-body" id="p6">Please turn my rough notes into clean, structured case notes ready to paste into our CRM (Salesforce / Zendesk). Use short, factual sentences.
 
 My rough notes:
-"<span class="placeholder">[Write anything here — even messy bullet points or a stream of consciousness description of what happened in the call or email]</span>"
+"<span class="ph">[Write anything here — messy bullet points, stream-of-consciousness, voice note transcription]</span>"
 
 Format as:
 • Issue:
 • Actions taken:
 • Resolution:
-• Next steps (if any):</div>
-        <div class="prompt-note">Great for right after a call when you need to log quickly and move on.</div>
+• Next steps (if any):
+• Follow-up due:</div>
+        <div class="prompt-note">Perfect right after a call when you need to log quickly and move on to the next ticket.</div>
+      </div>
+
+      <!-- 7 -->
+      <div class="prompt-card">
+        <div class="prompt-card-hd">
+          <div class="prompt-card-title">🤝 Email a retail / B2B partner</div>
+          <button class="copy-btn" onclick="copyPrompt(this,7)">Copy</button>
+        </div>
+        <div class="prompt-body" id="p7">I need to write a professional email to one of Suunto's retail partners or distributors.
+
+Situation: <span class="ph">[e.g. Informing them of a stock delay on Suunto Race, updating them on a warranty batch issue, requesting their Q3 order forecast]</span>
+Partner name / company: <span class="ph">[First name or company name]</span>
+Tone: professional and collaborative
+
+Keep it concise — under 120 words. We want to maintain a strong, trusting relationship.</div>
+        <div class="prompt-note">Adjust the tone down for close partners, up for new or formal relationships.</div>
+      </div>
+
+      <!-- 8 -->
+      <div class="prompt-card">
+        <div class="prompt-card-hd">
+          <div class="prompt-card-title">📖 Explain a Suunto feature simply</div>
+          <button class="copy-btn" onclick="copyPrompt(this,8)">Copy</button>
+        </div>
+        <div class="prompt-body" id="p8">A customer has asked me about the following Suunto feature. They're not technical, so please use simple, everyday language with no jargon.
+
+Feature: <span class="ph">[e.g. Training Load, FusedTrack GPS, Body Battery, Dive Planner, route navigation, Sleep Tracking]</span>
+
+Also give one real-world example of how this helps an athlete or outdoor enthusiast in practice. Keep it to 3–4 sentences total.</div>
+        <div class="prompt-note">You can paste Claude's explanation straight into your reply — just read it through first.</div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ── Tips ── -->
+<!-- ══ TIPS ══ -->
 <section id="tips" class="bg-white">
   <div class="container">
     <span class="section-label">Chapter 5</span>
-    <h2>Tips for Getting the Best Results</h2>
-    <p class="section-intro">A few small habits make a huge difference in the quality of Claude's answers.</p>
+    <h2>Tips for Better Results</h2>
+    <p class="section-intro">Small habits that make a big difference in the quality of Claude's answers.</p>
     <div class="tips-grid">
       <div class="tip">
-        <div class="tip-emoji">🎯</div>
+        <div class="tip-icon">🎯</div>
         <h3>Give Claude a role</h3>
-        <p>Start with "You are a Suunto Customer Success specialist..." — it shapes the whole response.</p>
+        <p>Start with "You are a Suunto Customer Success specialist…" — it shapes the whole tone.</p>
       </div>
       <div class="tip">
-        <div class="tip-emoji">📏</div>
-        <h3>Specify the length</h3>
-        <p>Say "under 100 words" or "3 bullet points" so you get exactly what fits in your reply.</p>
+        <div class="tip-icon">📏</div>
+        <h3>Set a word limit</h3>
+        <p>Say "under 100 words" or "3 bullet points" so the output fits exactly where you need it.</p>
       </div>
       <div class="tip">
-        <div class="tip-emoji">🔁</div>
+        <div class="tip-icon">🔁</div>
         <h3>Ask for a rewrite</h3>
-        <p>Not quite right? Say "Try again, but more empathetic" or "Less formal please." Claude never minds.</p>
+        <p>"Try again but warmer" or "Less formal please" — Claude never minds being asked again.</p>
       </div>
       <div class="tip">
-        <div class="tip-emoji">🧩</div>
-        <h3>Give context</h3>
-        <p>The more you tell Claude (product, issue, what's been tried), the better the answer.</p>
+        <div class="tip-icon">🧩</div>
+        <h3>Give more context</h3>
+        <p>The product, the issue, what's been tried — the more Claude knows, the better the answer.</p>
       </div>
       <div class="tip">
-        <div class="tip-emoji">👁️</div>
-        <h3>Always review before sending</h3>
-        <p>Claude is fast but not perfect. You are the expert — read it over and adjust anything that feels off.</p>
+        <div class="tip-icon">👁️</div>
+        <h3>Always review first</h3>
+        <p>Claude is fast but not infallible. You are the expert — read it over before sending.</p>
       </div>
       <div class="tip">
-        <div class="tip-emoji">🔒</div>
+        <div class="tip-icon">🔒</div>
         <h3>Protect customer data</h3>
-        <p>Replace real names, emails, and order numbers with placeholders like [Customer] and [#12345] if needed.</p>
+        <p>Replace real names, emails, and order numbers with [Customer] or [#ID] if needed.</p>
       </div>
     </div>
 
-    <br/><br/>
-    <h2>Do's and Don'ts</h2>
+    <h2>Do's &amp; Don'ts</h2>
     <p class="section-intro" style="margin-bottom:1.5rem;">Keep these in mind every time you use Claude at work.</p>
     <div class="do-dont">
       <div class="do-box">
         <h3>✅ Do</h3>
         <ul>
-          <li>Give Claude the full context of the situation</li>
-          <li>Tell it who the audience is (angry customer, engineering team, manager)</li>
-          <li>Ask follow-up questions to refine the answer</li>
-          <li>Use it to brainstorm multiple options</li>
-          <li>Read and edit the output before using it</li>
-          <li>Use it to save time on repetitive writing tasks</li>
+          <li>Give the full context of the situation</li>
+          <li>Say who the audience is (angry customer, logistics team, manager)</li>
+          <li>Iterate — ask follow-ups to improve the answer</li>
+          <li>Use it to brainstorm multiple response options</li>
+          <li>Edit the output before sending or logging</li>
+          <li>Use it to save time on repetitive writing</li>
         </ul>
       </div>
       <div class="dont-box">
         <h3>❌ Don't</h3>
         <ul>
           <li>Send Claude's reply word-for-word without reading it</li>
-          <li>Paste passwords, payment info, or sensitive credentials</li>
-          <li>Treat Claude's answer as legal, medical, or official Suunto policy</li>
-          <li>Expect it to know real-time info (current stock, live orders)</li>
-          <li>Rely on it to know internal Suunto systems or your CRM</li>
-          <li>Share confidential company strategy without approval</li>
+          <li>Paste passwords, payment info, or credentials</li>
+          <li>Treat Claude as official Suunto legal or product policy</li>
+          <li>Expect it to know real-time stock levels or live order status</li>
+          <li>Rely on it for information about internal Suunto systems</li>
+          <li>Share confidential business strategy without approval</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Practice ── -->
+<!-- ══ PRACTICE ══ -->
 <section id="practice" class="bg-light">
   <div class="container">
     <span class="section-label">Chapter 6</span>
     <h2>Practice Scenarios</h2>
-    <p class="section-intro">Try these realistic Suunto Customer Success situations to build your Claude confidence.</p>
-    <div class="practice-cards">
+    <p class="section-intro">Try these realistic Suunto situations to build confidence before using Claude on real tickets.</p>
+    <div class="practice-grid">
 
       <div class="practice-card">
-        <span class="tag">Beginner</span>
-        <h3>Firmware frustration</h3>
-        <p>A customer says their Suunto Race watch stopped syncing to the app after the latest firmware update.</p>
-        <div class="scenario">"My watch is stuck on the loading screen after the update. This is the third time this has happened! I have a marathon in two days. Please help."</div>
+        <span class="level level-beginner">Beginner</span>
+        <h3>Firmware crash before a race</h3>
+        <p>A customer's Suunto Race froze during a firmware update. They have a marathon in two days.</p>
+        <div class="scenario">"My watch is stuck on the loading screen after the update. Third time this has happened! I have a race in 48 hours. Please help."</div>
       </div>
 
       <div class="practice-card">
-        <span class="tag">Beginner</span>
-        <h3>Feature question</h3>
-        <p>A new customer bought a Suunto 9 Peak Pro and doesn't understand what "Training Load" means on their watch.</p>
-        <div class="scenario">"My watch keeps showing a warning about training load but I don't know what that means. Am I overtraining? Should I rest?"</div>
+        <span class="level level-beginner">Beginner</span>
+        <h3>New customer — feature question</h3>
+        <p>A new Suunto 9 Peak Pro owner doesn't understand the Training Load warning on their watch.</p>
+        <div class="scenario">"My watch keeps showing a red Training Load warning. Am I overtraining? Should I rest? Is something wrong with the watch?"</div>
       </div>
 
       <div class="practice-card">
-        <span class="tag">Intermediate</span>
-        <h3>Warranty claim</h3>
-        <p>A customer's dive computer flooded during a dive within the product's certified depth limit. They want a replacement.</p>
-        <div class="scenario">"I followed all the instructions and my Suunto EON Steel flooded at 25m even though it's rated to 100m. I lost all my dive logs. This is unacceptable."</div>
+        <span class="level level-beginner">Beginner</span>
+        <h3>App not syncing</h3>
+        <p>A customer can't get their Suunto 5 Peak to sync with the Suunto app after upgrading their phone.</p>
+        <div class="scenario">"Got a new iPhone and now my watch won't sync at all. It just keeps spinning. I've tried restarting everything."</div>
       </div>
 
       <div class="practice-card">
-        <span class="tag">Intermediate</span>
-        <h3>Translate & respond</h3>
-        <p>A customer contacts you in German about a billing issue with their Suunto app subscription.</p>
+        <span class="level level-intermediate">Intermediate</span>
+        <h3>Warranty claim — dive computer</h3>
+        <p>A customer's EON Steel flooded at 25 m — well within the 100 m rating. They want an immediate replacement.</p>
+        <div class="scenario">"I followed every instruction and my dive computer flooded at 25m. It's rated to 100m. I lost all my dive logs. This is completely unacceptable."</div>
+      </div>
+
+      <div class="practice-card">
+        <span class="level level-intermediate">Intermediate</span>
+        <h3>Translate and respond</h3>
+        <p>A customer writes in German about a double charge on their Suunto app subscription.</p>
         <div class="scenario">"Ich wurde zweimal für mein Suunto-Abonnement belastet. Bitte erstatten Sie mir den doppelten Betrag sofort zurück."</div>
       </div>
 
       <div class="practice-card">
-        <span class="tag">Advanced</span>
-        <h3>Long-running complaint</h3>
-        <p>A VIP customer has been back and forth with support for 6 weeks across 14 emails about GPS drift on their Suunto Vertical.</p>
+        <span class="level level-intermediate">Intermediate</span>
+        <h3>Retail partner update</h3>
+        <p>A key retail partner is asking why their Suunto Vertical order is 3 weeks delayed.</p>
+        <div class="scenario">Draft a transparent, professional email explaining the delay, what Suunto is doing about it, and the revised expected ship date.</div>
+      </div>
+
+      <div class="practice-card">
+        <span class="level level-advanced">Advanced</span>
+        <h3>Long-running GPS complaint</h3>
+        <p>A VIP customer has been back and forth for 6 weeks (14 emails) about GPS drift on their Suunto Vertical.</p>
         <div class="scenario">Summarise the thread, write an escalation brief for engineering, and draft a personal apology email from the CS Manager.</div>
       </div>
 
       <div class="practice-card">
-        <span class="tag">Advanced</span>
-        <h3>Social media response</h3>
-        <p>A frustrated customer has posted publicly on social media about a bad experience. Your manager asks you to draft a public reply.</p>
-        <div class="scenario">"@Suunto I've been waiting 3 weeks for my repaired watch with NO updates. Absolutely terrible customer service. #Suunto #Disappointed"</div>
+        <span class="level level-advanced">Advanced</span>
+        <h3>Social media reply</h3>
+        <p>A frustrated customer posts publicly about waiting 3 weeks for a repair with zero updates.</p>
+        <div class="scenario">"@Suunto waiting 3 weeks for my repaired watch with ZERO communication. Terrible customer service. Never buying Suunto again. #Disappointed"</div>
+      </div>
+
+      <div class="practice-card">
+        <span class="level level-advanced">Advanced</span>
+        <h3>Feedback analysis</h3>
+        <p>You have 20 customer feedback responses from last month's NPS survey. Your manager wants the key themes.</p>
+        <div class="scenario">Paste the feedback, ask Claude to identify the top 3 complaint themes, 2 praise themes, and one suggested quick win.</div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ── Footer ── -->
+<!-- ══ FOOTER ══ -->
 <footer>
-  <p>Built with care for <strong>Suunto Customer Success</strong> · Powered by <strong>Claude AI</strong></p>
-  <p style="margin-top:.4rem;">Have a suggestion? Talk to your manager about what else would help.</p>
+  <div class="logo-row">
+    <svg width="100" height="18" viewBox="0 0 100 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="15" font-family="Raleway, sans-serif" font-weight="900" font-size="17" fill="#555" letter-spacing="2.5">SUUNTO</text>
+    </svg>
+  </div>
+  <p>Built for <strong>Customer Success</strong> · Powered by <strong class="red">Claude AI</strong></p>
+  <p style="margin-top:.4rem;">Questions? Speak to your manager or CS team lead.</p>
 </footer>
 
-<!-- ── Copy script ── -->
+<!-- ══ Copy script ══ -->
 <script>
   function copyPrompt(btn, id) {
     const el = document.getElementById('p' + id);
-    // Get text content (strips HTML tags like <span class="placeholder">)
     const text = el.innerText || el.textContent;
     navigator.clipboard.writeText(text).then(() => {
       btn.textContent = 'Copied!';
       btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = 'Copy';
-        btn.classList.remove('copied');
-      }, 2000);
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
     });
   }
 </script>
