@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Claude for Customer Success · Suunto</title>
+  <title>Claude for Account Managers · Suunto UK</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -366,6 +366,72 @@
       font-style: italic;
     }
 
+    /* ── Course callouts ── */
+    .course-link {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--red);
+      padding: 1.1rem 1.4rem;
+      margin-top: 2rem;
+      text-decoration: none;
+      transition: box-shadow .2s, transform .15s, border-color .2s;
+    }
+    .course-link:hover {
+      box-shadow: 0 4px 18px rgba(0,0,0,.08);
+      transform: translateY(-2px);
+      border-color: rgba(204,0,0,.35);
+      border-left-color: var(--red);
+    }
+    .course-link-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--red-bg);
+      border-radius: 2px;
+      font-size: 1.4rem;
+    }
+    .course-link-body { flex: 1; min-width: 0; }
+    .course-link-label {
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: .2rem;
+    }
+    .course-link-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--black);
+      letter-spacing: -.005em;
+    }
+    .course-link-desc {
+      font-size: .85rem;
+      color: var(--mid);
+      margin-top: .15rem;
+      line-height: 1.45;
+    }
+    .course-link-arrow {
+      flex-shrink: 0;
+      color: var(--red);
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+    .bg-black .course-link { background: #1e1e1e; border-color: #333; border-left-color: var(--red); }
+    .bg-black .course-link-title { color: var(--white); }
+    .bg-black .course-link-desc  { color: #aaa; }
+    .bg-black .course-link-icon  { background: rgba(204,0,0,.18); }
+    @media (max-width: 560px) {
+      .course-link { gap: .9rem; padding: 1rem; }
+      .course-link-arrow { display: none; }
+    }
+
     /* ── Footer ── */
     footer {
       background: var(--black);
@@ -403,7 +469,7 @@
       </svg>
     </div>
     <div class="nav-divider"></div>
-    <span class="nav-subtitle">Customer Success</span>
+    <span class="nav-subtitle">Account Management</span>
   </div>
   <ul class="nav-links">
     <li><a href="#what-is-claude">What is Claude?</a></li>
@@ -417,9 +483,9 @@
 
 <!-- ══ HERO ══ -->
 <div class="hero">
-  <div class="hero-eyebrow">Your AI toolkit for Customer Success</div>
-  <h1>Use <em>Claude</em> to deliver<br/>world-class support at Suunto</h1>
-  <p>A practical guide built around your role — real tasks, real templates, real Suunto scenarios.</p>
+  <div class="hero-eyebrow">Your AI co-pilot for Account Management</div>
+  <h1>Use <em>Claude</em> to win more deals<br/>at <em>Suunto UK</em></h1>
+  <p>A practical guide for your Account Manager role — built around retail partners, sell-in cycles, QBRs, and the daily realities of UK sports &amp; outdoor sales.</p>
   <a href="#what-is-claude" class="btn-red">Get started →</a>
 </div>
 
@@ -429,30 +495,40 @@
     <span class="section-label">Chapter 1</span>
     <h2>What is Claude?</h2>
     <p class="section-intro">
-      Claude is an AI assistant made by Anthropic. Think of it as a brilliant, endlessly patient colleague who never gets tired and can help with nearly any writing, thinking, or research task.
+      Claude is an AI assistant made by Anthropic. Think of it as a sharp, endlessly patient analyst who can draft your buyer emails, prep your QBRs, and pressure-test your pitches — in seconds, any time of day.
     </p>
     <div class="card-grid">
       <div class="card">
         <div class="card-icon">✍️</div>
         <h3>Writes for you</h3>
-        <p>Drafts emails, case notes, summaries, and responses in seconds — in your voice and at the right tone.</p>
+        <p>Drafts buyer emails, meeting recaps, sell-in pitches, and QBR talking points in your voice.</p>
       </div>
       <div class="card">
         <div class="card-icon">🧠</div>
         <h3>Thinks with you</h3>
-        <p>Helps you figure out how to handle a tricky customer, what to offer, or how to escalate an issue clearly.</p>
+        <p>Pressure-tests your forecasts, rehearses negotiations, and helps you anticipate buyer objections.</p>
       </div>
       <div class="card">
-        <div class="card-icon">🌍</div>
-        <h3>Translates instantly</h3>
-        <p>Suunto customers are global. Claude reads and replies in Finnish, German, Japanese, French, and many more.</p>
+        <div class="card-icon">📊</div>
+        <h3>Analyses for you</h3>
+        <p>Paste sales data, partner feedback, or market notes and ask for the top three takeaways.</p>
       </div>
       <div class="card">
         <div class="card-icon">🔒</div>
         <h3>No memory between chats</h3>
-        <p>Each conversation starts fresh. Replace real customer names and order numbers with placeholders when needed.</p>
+        <p>Each conversation starts fresh. Replace real account names and figures with placeholders when needed.</p>
       </div>
     </div>
+
+    <a href="https://anthropic.skilljar.com/ai-fluency-framework-foundations" target="_blank" rel="noopener" class="course-link">
+      <div class="course-link-icon">🎓</div>
+      <div class="course-link-body">
+        <div class="course-link-label">Free course · Anthropic Academy</div>
+        <div class="course-link-title">AI Fluency: Framework &amp; Foundations</div>
+        <div class="course-link-desc">A non-technical 2-hour mental model for how AI works, what it can do, and how to think about it strategically — perfect before going further.</div>
+      </div>
+      <div class="course-link-arrow">→</div>
+    </a>
   </div>
 </section>
 
@@ -488,10 +564,20 @@
         <div class="step-num">4</div>
         <div>
           <h3>Read it — then refine it</h3>
-          <p>If the first answer isn't right, just say: <em>"Make it shorter,"</em> <em>"More formal please,"</em> or <em>"Add the warranty policy."</em> You're always in control.</p>
+          <p>If the first answer isn't right, just say: <em>"Make it shorter,"</em> <em>"More formal please,"</em> or <em>"Add a line about the new launch."</em> You're always in control.</p>
         </div>
       </div>
     </div>
+
+    <a href="https://anthropic.skilljar.com/claude-101" target="_blank" rel="noopener" class="course-link">
+      <div class="course-link-icon">📘</div>
+      <div class="course-link-body">
+        <div class="course-link-label">Free course · Anthropic Academy</div>
+        <div class="course-link-title">Claude 101</div>
+        <div class="course-link-desc">A hands-on walkthrough of using Claude for daily work — writing emails, analysing documents, organising information. No coding required.</div>
+      </div>
+      <div class="course-link-arrow">→</div>
+    </a>
   </div>
 </section>
 
@@ -500,69 +586,79 @@
   <div class="container">
     <span class="section-label">Chapter 3</span>
     <h2>What You Can Do with Claude</h2>
-    <p class="section-intro">Real tasks across the full Customer Success lifecycle — from first contact to retention.</p>
+    <p class="section-intro">Real tasks across the full account lifecycle — from first pitch to renewal and growth.</p>
     <div class="card-grid">
       <div class="card">
         <div class="card-icon">📧</div>
-        <h3>Draft customer replies</h3>
-        <p>Paste an email, describe the issue, and get a professional response in 10 seconds.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔄</div>
-        <h3>Write follow-up emails</h3>
-        <p>After closing a ticket, Claude drafts the perfect check-in to leave a lasting positive impression.</p>
+        <h3>Draft buyer emails</h3>
+        <p>Follow-ups after a meeting, sell-in introductions, range review nudges — all in your tone.</p>
       </div>
       <div class="card">
         <div class="card-icon">📋</div>
-        <h3>Summarise tickets</h3>
-        <p>Paste a long email thread and get a 3-bullet summary — perfect prep before a customer call.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🌐</div>
-        <h3>Translate messages</h3>
-        <p>Finnish, German, Japanese, French — paste the message and ask "What does this say?"</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🚀</div>
-        <h3>Write escalation briefs</h3>
-        <p>Turn rough notes into structured briefs for engineering or operations teams.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📖</div>
-        <h3>Explain product features</h3>
-        <p>Ask Claude to explain FusedTrack GPS, Training Load, or dive modes in plain language for customers.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">💬</div>
-        <h3>Handle difficult customers</h3>
-        <p>Describe the situation and ask: "Help me respond calmly and professionally to this frustrated customer."</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📝</div>
-        <h3>Log CRM case notes</h3>
-        <p>Turn messy post-call notes into clean, structured entries ready to paste into Salesforce or Zendesk.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🤝</div>
-        <h3>Support B2B partners</h3>
-        <p>Draft professional communications to retailers, distributors, and wholesale partners.</p>
+        <h3>Write meeting recaps</h3>
+        <p>Turn rough notes from a buyer meeting into a clean recap with clear next steps.</p>
       </div>
       <div class="card">
         <div class="card-icon">📊</div>
-        <h3>Analyse feedback patterns</h3>
-        <p>Paste customer feedback and ask Claude to identify the top 3 recurring themes or complaints.</p>
+        <h3>Prep QBRs &amp; account reviews</h3>
+        <p>Structure quarterly business reviews, draft talking points, and pressure-test your story.</p>
       </div>
       <div class="card">
-        <div class="card-icon">📚</div>
-        <h3>Build knowledge base content</h3>
-        <p>Turn a solved case into a clear FAQ article that helps prevent the same question next time.</p>
+        <div class="card-icon">🚀</div>
+        <h3>Build sell-in pitches</h3>
+        <p>Craft a compelling pitch for a new Suunto product — margin story, demand signals, support plan.</p>
       </div>
       <div class="card">
         <div class="card-icon">🎯</div>
-        <h3>Proactive outreach</h3>
-        <p>Draft personalised check-in messages to at-risk accounts or post-purchase onboarding flows.</p>
+        <h3>Plan retail activations</h3>
+        <p>Brief marketing on in-store campaigns, online sell-through, event activations, and POS.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Justify demand forecasts</h3>
+        <p>Build the narrative behind your monthly plan — past performance, market signals, planned activations.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Rehearse negotiations</h3>
+        <p>"What objections might a buyer raise on these terms?" Get arguments and counter-arguments before the call.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏪</div>
+        <h3>Train retail staff</h3>
+        <p>Build 30-min in-store training agendas — product features, talking points, demo flow.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚔️</div>
+        <h3>Competitive analysis</h3>
+        <p>Compare Suunto's offering against Garmin, COROS, Polar — features, price, positioning.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📝</div>
+        <h3>Internal updates</h3>
+        <p>Turn account activity into clean weekly updates for the UK Sales &amp; Marketing team.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>Handle tough conversations</h3>
+        <p>Margin pressure, stock issues, missed forecasts — get a calm, professional script before the call.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🗺️</div>
+        <h3>Map new accounts</h3>
+        <p>Plan your approach to a new retailer — stakeholders, decision-makers, opening hooks.</p>
       </div>
     </div>
+
+    <a href="https://anthropic.skilljar.com/introduction-to-claude-cowork" target="_blank" rel="noopener" class="course-link">
+      <div class="course-link-icon">🤝</div>
+      <div class="course-link-body">
+        <div class="course-link-label">Free course · Anthropic Academy</div>
+        <div class="course-link-title">Introduction to Claude Cowork</div>
+        <div class="course-link-desc">Once you're comfortable, learn how Claude can work directly with your files, spreadsheets, and apps — ideal for forecasts, QBR decks, and account plans.</div>
+      </div>
+      <div class="course-link-arrow">→</div>
+    </a>
   </div>
 </section>
 
@@ -579,140 +675,189 @@
       <!-- 1 -->
       <div class="prompt-card">
         <div class="prompt-card-hd">
-          <div class="prompt-card-title">📧 Reply to a customer complaint</div>
+          <div class="prompt-card-title">📧 Follow up after a buyer meeting</div>
           <button class="copy-btn" onclick="copyPrompt(this,1)">Copy</button>
         </div>
-        <div class="prompt-body" id="p1">You are a professional and friendly Customer Success specialist at Suunto, a Finnish sports technology company known for GPS watches, dive computers, and outdoor equipment.
+        <div class="prompt-body" id="p1">You are an Account Manager at Suunto UK (sports watches, dive computers, outdoor gear). I just finished a meeting with a retail buyer and need to send a follow-up email today.
 
-A customer has sent the following message:
-"<span class="ph">[Paste the customer's message here]</span>"
+Buyer: <span class="ph">[Name and role, e.g. Head of Buying, Cotswold Outdoor]</span>
+Account: <span class="ph">[Retailer name]</span>
 
-Product and case details: <span class="ph">[e.g. Suunto 9 Peak Pro, purchased 3 months ago, GPS not locking]</span>
+What we discussed:
+"<span class="ph">[Paste your rough notes — products covered, pricing, objections, next steps]</span>"
 
-Write a warm, empathetic reply that:
-- Acknowledges their frustration sincerely
-- Explains the next step we will take
-- Gives a clear timeline or expectation
-- Closes in a positive, brand-appropriate way
+Please draft a warm, professional follow-up email that:
+- Thanks them for their time
+- Recaps the 2–3 key points we agreed
+- States clear next steps and owners
+- Sets up the next touchpoint
 
-Keep it under 150 words. Professional but human.</div>
-        <div class="prompt-note">After Claude replies, try: "Make it more empathetic" or "Add a line about our 2-year warranty."</div>
+Keep it under 150 words. Confident but never pushy.</div>
+        <div class="prompt-note">After Claude replies: "Make it warmer" or "Add a line about the Suunto Race Q4 launch."</div>
       </div>
 
       <!-- 2 -->
       <div class="prompt-card">
         <div class="prompt-card-hd">
-          <div class="prompt-card-title">🌐 Translate a customer message</div>
+          <div class="prompt-card-title">📋 Turn meeting notes into a clean recap</div>
           <button class="copy-btn" onclick="copyPrompt(this,2)">Copy</button>
         </div>
-        <div class="prompt-body" id="p2">Translate the following customer message into English. Then give me a 2–3 bullet summary of their main issue or question.
+        <div class="prompt-body" id="p2">Please turn my rough notes from a buyer meeting into a clean internal recap I can paste into our CRM and share with the UK Sales team.
 
-Customer message:
-"<span class="ph">[Paste the message here]</span>"</div>
-        <div class="prompt-note">Works automatically for Finnish, German, Japanese, French, Spanish, Chinese, and many more languages.</div>
+My rough notes:
+"<span class="ph">[Paste anything — bullet points, voice-note transcript, scribbled thoughts]</span>"
+
+Format the output as:
+• Account &amp; attendees:
+• Headline (one sentence — what's the most important thing?):
+• Discussion points:
+• Buyer concerns / objections:
+• Commitments made (by us and by them):
+• Next steps &amp; owners:
+• Follow-up due:</div>
+        <div class="prompt-note">Run this in the car-park after a customer visit while it's all still fresh.</div>
       </div>
 
       <!-- 3 -->
       <div class="prompt-card">
         <div class="prompt-card-hd">
-          <div class="prompt-card-title">📋 Summarise a long email thread</div>
+          <div class="prompt-card-title">📊 Prep a Quarterly Business Review</div>
           <button class="copy-btn" onclick="copyPrompt(this,3)">Copy</button>
         </div>
-        <div class="prompt-body" id="p3">Below is an email thread between a Suunto customer and our support team. Please give me:
-1. A 2–3 sentence summary of the core issue
-2. What has already been tried or offered
-3. Current status and any outstanding action needed
+        <div class="prompt-body" id="p3">I'm an Account Manager at Suunto UK preparing a Quarterly Business Review with one of my retail partners.
 
-Email thread:
-"<span class="ph">[Paste the full thread here]</span>"</div>
-        <div class="prompt-note">Run this before a customer call so you walk in fully prepared — even on complex, multi-week cases.</div>
+Account: <span class="ph">[Retailer name, e.g. Snow + Rock, 12 UK stores]</span>
+Last quarter highlights: <span class="ph">[YoY growth %, hero products, missed targets, activations run]</span>
+Looking ahead: <span class="ph">[Planned launches, range changes, market context]</span>
+
+Please give me:
+1. A suggested QBR agenda (45 min meeting)
+2. The 3 most important talking points I should land
+3. Two open questions to ask the buyer
+4. One honest risk I should flag proactively before they raise it</div>
+        <div class="prompt-note">A great QBR is a conversation, not a presentation. The honest risk point earns trust every time.</div>
       </div>
 
       <!-- 4 -->
       <div class="prompt-card">
         <div class="prompt-card-hd">
-          <div class="prompt-card-title">🚀 Write an escalation brief</div>
+          <div class="prompt-card-title">🚀 Build a sell-in pitch for a new product</div>
           <button class="copy-btn" onclick="copyPrompt(this,4)">Copy</button>
         </div>
-        <div class="prompt-body" id="p4">I need to escalate a customer case to our engineering or operations team at Suunto. Here are my notes:
+        <div class="prompt-body" id="p4">I'm pitching a new Suunto product into one of my UK retail accounts. Please help me build a compelling sell-in story.
 
-Customer / Case ID: <span class="ph">[Name or ID — anonymise if needed]</span>
-Product: <span class="ph">[e.g. Suunto Vertical, firmware 2.1.7]</span>
-Issue: <span class="ph">[Describe in your own words]</span>
-Steps already taken: <span class="ph">[e.g. factory reset, app reinstall, warranty swap offered]</span>
+Product: <span class="ph">[e.g. Suunto Race S, new colourway launching Q1]</span>
+Retailer: <span class="ph">[Account name and type — e.g. Up &amp; Running, 25 stores, run specialists]</span>
+Key facts: <span class="ph">[RRP, trade margin, USP, target customer]</span>
 
-Turn these into a clear, structured escalation brief a technical team can act on. Include a suggested severity: Low / Medium / High / Critical.</div>
-        <div class="prompt-note">Saves 20+ minutes every time you escalate. The team gets everything they need on the first read.</div>
+Please give me:
+1. A one-sentence pitch ("In one breath, here's why you should stock this…")
+2. Three reasons this works for THIS retailer's customer base
+3. The expected objection and how I'd respond to it
+4. A suggested opening order quantity, with the rationale
+
+UK retail context. British English spelling.</div>
+        <div class="prompt-note">Tell Claude the retailer's customer profile — the pitch lands much better when tailored.</div>
       </div>
 
       <!-- 5 -->
       <div class="prompt-card">
         <div class="prompt-card-hd">
-          <div class="prompt-card-title">💬 De-escalate a frustrated customer</div>
+          <div class="prompt-card-title">📈 Justify a monthly demand forecast</div>
           <button class="copy-btn" onclick="copyPrompt(this,5)">Copy</button>
         </div>
-        <div class="prompt-body" id="p5">I'm a Customer Success specialist at Suunto dealing with a very upset customer. Here's the situation:
+        <div class="prompt-body" id="p5">I need to submit my monthly demand forecast for one of my UK accounts and write a short rationale that holds up to scrutiny from supply &amp; finance.
 
-"<span class="ph">[Describe what happened — e.g. watch stopped working mid-race, returned twice, customer feels ignored]</span>"
+Account: <span class="ph">[Retailer name]</span>
+Forecast: <span class="ph">[e.g. 420 units of Suunto Vertical for September, up 18% on last year]</span>
+Drivers I'm seeing: <span class="ph">[New stores opening, planned activation, seasonal demand, competitor move, etc.]</span>
 
-Please help me:
-1. Draft a sincere apology that doesn't sound scripted or corporate
-2. Suggest 2–3 things I could offer to make this right (within normal CS authority)
-3. Write one short "de-escalation line" I could use if they call instead of email</div>
-        <div class="prompt-note">Remember: you decide what to actually offer. Claude is brainstorming — not making commitments on your behalf.</div>
+Please write a clear 5–8 line rationale that:
+- Explains what's driving the number
+- Acknowledges one downside risk honestly
+- Shows the assumption I'd revise the forecast against (the "tripwire")
+
+Clean business tone — no fluff.</div>
+        <div class="prompt-note">The honest downside risk is what gets your forecast trusted next time.</div>
       </div>
 
       <!-- 6 -->
       <div class="prompt-card">
         <div class="prompt-card-hd">
-          <div class="prompt-card-title">📝 Log clean CRM case notes</div>
+          <div class="prompt-card-title">🤝 Rehearse a tough negotiation</div>
           <button class="copy-btn" onclick="copyPrompt(this,6)">Copy</button>
         </div>
-        <div class="prompt-body" id="p6">Please turn my rough notes into clean, structured case notes ready to paste into our CRM (Salesforce / Zendesk). Use short, factual sentences.
+        <div class="prompt-body" id="p6">I have a negotiation coming up with a retail partner and I want to rehearse before the meeting.
 
-My rough notes:
-"<span class="ph">[Write anything here — messy bullet points, stream-of-consciousness, voice note transcription]</span>"
+The situation:
+"<span class="ph">[Describe what's at stake — e.g. buyer wants 2 extra margin points to keep stocking Suunto, or wants exclusivity on a new colourway, or is threatening to delist]</span>"
 
-Format as:
-• Issue:
-• Actions taken:
-• Resolution:
-• Next steps (if any):
-• Follow-up due:</div>
-        <div class="prompt-note">Perfect right after a call when you need to log quickly and move on to the next ticket.</div>
+What I can flex on: <span class="ph">[e.g. marketing co-funding, POS support, exclusive timing window, training days]</span>
+What I cannot move on: <span class="ph">[e.g. headline trade margin, MAP pricing]</span>
+
+Please help me:
+1. List the three most likely arguments the buyer will use
+2. Give me a strong, calm response to each
+3. Suggest a creative "trade" — what I could offer instead of what they're asking for
+4. Write one opening line that sets a collaborative tone</div>
+        <div class="prompt-note">Always know your walk-away point before the meeting. Claude is rehearsal — you decide what to offer.</div>
       </div>
 
       <!-- 7 -->
       <div class="prompt-card">
         <div class="prompt-card-hd">
-          <div class="prompt-card-title">🤝 Email a retail / B2B partner</div>
+          <div class="prompt-card-title">🏪 Plan a retail staff training session</div>
           <button class="copy-btn" onclick="copyPrompt(this,7)">Copy</button>
         </div>
-        <div class="prompt-body" id="p7">I need to write a professional email to one of Suunto's retail partners or distributors.
+        <div class="prompt-body" id="p7">I'm running an in-store training session for the staff of a Suunto retail partner. The goal is to lift their confidence in selling Suunto so they recommend us more often.
 
-Situation: <span class="ph">[e.g. Informing them of a stock delay on Suunto Race, updating them on a warranty batch issue, requesting their Q3 order forecast]</span>
-Partner name / company: <span class="ph">[First name or company name]</span>
-Tone: professional and collaborative
+Retailer: <span class="ph">[Store name, type and staff size — e.g. flagship Snow + Rock store, 8 staff]</span>
+Duration: <span class="ph">[e.g. 30 minutes between shifts]</span>
+Focus product: <span class="ph">[e.g. Suunto Race S, or the dive range, or the full sports watch line]</span>
 
-Keep it concise — under 120 words. We want to maintain a strong, trusting relationship.</div>
-        <div class="prompt-note">Adjust the tone down for close partners, up for new or formal relationships.</div>
+Please give me:
+1. A minute-by-minute agenda
+2. The three "must-land" talking points
+3. Two demo moments that get hands on the product
+4. A simple cheat-sheet with the 3 most common customer questions and how to answer them
+
+Friendly, energetic tone. UK retail context.</div>
+        <div class="prompt-note">Staff who feel confident sell more. Bring a demo unit and let them play with it.</div>
       </div>
 
       <!-- 8 -->
       <div class="prompt-card">
         <div class="prompt-card-hd">
-          <div class="prompt-card-title">📖 Explain a Suunto feature simply</div>
+          <div class="prompt-card-title">📝 Write a weekly update for the UK team</div>
           <button class="copy-btn" onclick="copyPrompt(this,8)">Copy</button>
         </div>
-        <div class="prompt-body" id="p8">A customer has asked me about the following Suunto feature. They're not technical, so please use simple, everyday language with no jargon.
+        <div class="prompt-body" id="p8">Please turn my rough notes from the week into a clean update for the UK Sales &amp; Marketing team. Tight, scannable, no fluff.
 
-Feature: <span class="ph">[e.g. Training Load, FusedTrack GPS, Body Battery, Dive Planner, route navigation, Sleep Tracking]</span>
+My notes:
+"<span class="ph">[Everything from the week — accounts visited, deals progressed, blockers, wins, risks]</span>"
 
-Also give one real-world example of how this helps an athlete or outdoor enthusiast in practice. Keep it to 3–4 sentences total.</div>
-        <div class="prompt-note">You can paste Claude's explanation straight into your reply — just read it through first.</div>
+Format as:
+• Headline of the week (one sentence):
+• Wins:
+• Risks &amp; blockers (with the help I need):
+• Forecast movement vs plan:
+• Next week's priorities (top 3):
+
+UK English spelling. Confident but honest tone — flag risks early, don't dress them up.</div>
+        <div class="prompt-note">Managers love updates that flag risks early. It builds trust and gets you help before the wheels come off.</div>
       </div>
 
     </div>
+
+    <a href="https://www.anthropic.com/learn" target="_blank" rel="noopener" class="course-link">
+      <div class="course-link-icon">✨</div>
+      <div class="course-link-body">
+        <div class="course-link-label">Free · Anthropic Learn</div>
+        <div class="course-link-title">Browse all Claude learning resources</div>
+        <div class="course-link-desc">Guides, prompt examples, video tutorials and certified courses — straight from the team that builds Claude.</div>
+      </div>
+      <div class="course-link-arrow">→</div>
+    </a>
   </div>
 </section>
 
@@ -761,23 +906,23 @@ Also give one real-world example of how this helps an athlete or outdoor enthusi
       <div class="do-box">
         <h3>✅ Do</h3>
         <ul>
-          <li>Give the full context of the situation</li>
-          <li>Say who the audience is (angry customer, logistics team, manager)</li>
-          <li>Iterate — ask follow-ups to improve the answer</li>
-          <li>Use it to brainstorm multiple response options</li>
-          <li>Edit the output before sending or logging</li>
-          <li>Use it to save time on repetitive writing</li>
+          <li>Give the full context — account, history, what's at stake</li>
+          <li>Tell Claude who the audience is (buyer, internal team, manager)</li>
+          <li>Iterate — ask follow-ups to sharpen the output</li>
+          <li>Use it to rehearse difficult conversations before the call</li>
+          <li>Always edit the output before sending or pasting into CRM</li>
+          <li>Use it to save time on the writing, not on the thinking</li>
         </ul>
       </div>
       <div class="dont-box">
         <h3>❌ Don't</h3>
         <ul>
-          <li>Send Claude's reply word-for-word without reading it</li>
-          <li>Paste passwords, payment info, or credentials</li>
-          <li>Treat Claude as official Suunto legal or product policy</li>
-          <li>Expect it to know real-time stock levels or live order status</li>
-          <li>Rely on it for information about internal Suunto systems</li>
-          <li>Share confidential business strategy without approval</li>
+          <li>Send Claude's draft word-for-word — your relationships are personal</li>
+          <li>Paste passwords, contract figures, or anything truly confidential</li>
+          <li>Treat Claude's commercial suggestions as company policy</li>
+          <li>Expect it to know real-time stock, pricing, or order status</li>
+          <li>Rely on it for the latest Suunto launch dates or NDA info</li>
+          <li>Use it to commit to buyers on Suunto's behalf — that's still your call</li>
         </ul>
       </div>
     </div>
@@ -789,70 +934,70 @@ Also give one real-world example of how this helps an athlete or outdoor enthusi
   <div class="container">
     <span class="section-label">Chapter 6</span>
     <h2>Practice Scenarios</h2>
-    <p class="section-intro">Try these realistic Suunto situations to build confidence before using Claude on real tickets.</p>
+    <p class="section-intro">Try these realistic Suunto UK situations to build confidence before using Claude on live accounts.</p>
     <div class="practice-grid">
 
       <div class="practice-card">
         <span class="level level-beginner">Beginner</span>
-        <h3>Firmware crash before a race</h3>
-        <p>A customer's Suunto Race froze during a firmware update. They have a marathon in two days.</p>
-        <div class="scenario">"My watch is stuck on the loading screen after the update. Third time this has happened! I have a race in 48 hours. Please help."</div>
+        <h3>Recap after a buyer meeting</h3>
+        <p>You just met with the head buyer of a regional outdoor retailer. You have 8 lines of scribbled notes.</p>
+        <div class="scenario">Use Claude to turn the notes into a clean follow-up email plus an internal CRM recap — in under 5 minutes.</div>
       </div>
 
       <div class="practice-card">
         <span class="level level-beginner">Beginner</span>
-        <h3>New customer — feature question</h3>
-        <p>A new Suunto 9 Peak Pro owner doesn't understand the Training Load warning on their watch.</p>
-        <div class="scenario">"My watch keeps showing a red Training Load warning. Am I overtraining? Should I rest? Is something wrong with the watch?"</div>
+        <h3>Pitch a new colourway</h3>
+        <p>Suunto Race launches in a new "Coral" colourway next month. An existing retailer already stocks the black version.</p>
+        <div class="scenario">Build the sell-in argument: why add a second SKU rather than swap, expected uplift, suggested opening order.</div>
       </div>
 
       <div class="practice-card">
         <span class="level level-beginner">Beginner</span>
-        <h3>App not syncing</h3>
-        <p>A customer can't get their Suunto 5 Peak to sync with the Suunto app after upgrading their phone.</p>
-        <div class="scenario">"Got a new iPhone and now my watch won't sync at all. It just keeps spinning. I've tried restarting everything."</div>
+        <h3>Brief a staff training</h3>
+        <p>You have 30 minutes between shifts to train 6 staff at a flagship sports retailer on Suunto's dive range.</p>
+        <div class="scenario">Build the agenda, the three must-land points, and a cheat-sheet for the most common customer questions.</div>
       </div>
 
       <div class="practice-card">
         <span class="level level-intermediate">Intermediate</span>
-        <h3>Warranty claim — dive computer</h3>
-        <p>A customer's EON Steel flooded at 25 m — well within the 100 m rating. They want an immediate replacement.</p>
-        <div class="scenario">"I followed every instruction and my dive computer flooded at 25m. It's rated to 100m. I lost all my dive logs. This is completely unacceptable."</div>
+        <h3>Defend a soft forecast</h3>
+        <p>Your forecast for next month is 18% below the same period last year. Supply &amp; finance are pushing back.</p>
+        <div class="scenario">Write a clear rationale: what's driving the dip, the one assumption you'd flex, and the tripwire that would change your view.</div>
       </div>
 
       <div class="practice-card">
         <span class="level level-intermediate">Intermediate</span>
-        <h3>Translate and respond</h3>
-        <p>A customer writes in German about a double charge on their Suunto app subscription.</p>
-        <div class="scenario">"Ich wurde zweimal für mein Suunto-Abonnement belastet. Bitte erstatten Sie mir den doppelten Betrag sofort zurück."</div>
+        <h3>Plan a flagship in-store activation</h3>
+        <p>A top UK outdoor retailer has agreed to a weekend Suunto activation in their London flagship store.</p>
+        <div class="scenario">Brief marketing: goal, audience, in-store experience, staff support, POS, social amplification, success metrics.</div>
       </div>
 
       <div class="practice-card">
         <span class="level level-intermediate">Intermediate</span>
-        <h3>Retail partner update</h3>
-        <p>A key retail partner is asking why their Suunto Vertical order is 3 weeks delayed.</p>
-        <div class="scenario">Draft a transparent, professional email explaining the delay, what Suunto is doing about it, and the revised expected ship date.</div>
+        <h3>Win back a dive shop</h3>
+        <p>A long-standing dive centre is leaning towards a competitor brand for 2026. You have one shot to keep them.</p>
+        <div class="scenario">Map their likely objections, prepare counter-offers within your authority, and draft your opening pitch for the meeting.</div>
       </div>
 
       <div class="practice-card">
         <span class="level level-advanced">Advanced</span>
-        <h3>Long-running GPS complaint</h3>
-        <p>A VIP customer has been back and forth for 6 weeks (14 emails) about GPS drift on their Suunto Vertical.</p>
-        <div class="scenario">Summarise the thread, write an escalation brief for engineering, and draft a personal apology email from the CS Manager.</div>
+        <h3>Prep a Q4 QBR for a national chain</h3>
+        <p>You have an hour with a key UK chain's commercial team to review Q3 and align on Q4.</p>
+        <div class="scenario">Build the agenda, top talking points, two questions to ask them, and one risk to flag honestly before they raise it.</div>
       </div>
 
       <div class="practice-card">
         <span class="level level-advanced">Advanced</span>
-        <h3>Social media reply</h3>
-        <p>A frustrated customer posts publicly about waiting 3 weeks for a repair with zero updates.</p>
-        <div class="scenario">"@Suunto waiting 3 weeks for my repaired watch with ZERO communication. Terrible customer service. Never buying Suunto again. #Disappointed"</div>
+        <h3>Margin renegotiation</h3>
+        <p>A buyer is demanding two extra margin points or they'll cut Suunto's range by 30%. You can't move on headline margin.</p>
+        <div class="scenario">Rehearse the negotiation: their likely arguments, your calm responses, three creative trades, and your walk-away point.</div>
       </div>
 
       <div class="practice-card">
         <span class="level level-advanced">Advanced</span>
-        <h3>Feedback analysis</h3>
-        <p>You have 20 customer feedback responses from last month's NPS survey. Your manager wants the key themes.</p>
-        <div class="scenario">Paste the feedback, ask Claude to identify the top 3 complaint themes, 2 praise themes, and one suggested quick win.</div>
+        <h3>Build a 12-month account plan</h3>
+        <p>You've been assigned a new mid-tier chain (8 UK stores, currently not stocking Suunto).</p>
+        <div class="scenario">Map stakeholders, opening hooks, a phased range entry plan, activation calendar, and quarterly milestones.</div>
       </div>
 
     </div>
@@ -866,8 +1011,8 @@ Also give one real-world example of how this helps an athlete or outdoor enthusi
       <text x="0" y="15" font-family="Raleway, sans-serif" font-weight="900" font-size="17" fill="#555" letter-spacing="2.5">SUUNTO</text>
     </svg>
   </div>
-  <p>Built for <strong>Customer Success</strong> · Powered by <strong class="red">Claude AI</strong></p>
-  <p style="margin-top:.4rem;">Questions? Speak to your manager or CS team lead.</p>
+  <p>Built for <strong>Account Management</strong> · Powered by <strong class="red">Claude AI</strong></p>
+  <p style="margin-top:.4rem;">Want to go deeper? Visit <a href="https://www.anthropic.com/learn" target="_blank" rel="noopener" style="color:#ccc;text-decoration:underline;">anthropic.com/learn</a> for free courses.</p>
 </footer>
 
 <!-- ══ Copy script ══ -->
