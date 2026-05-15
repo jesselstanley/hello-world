@@ -366,6 +366,124 @@
       font-style: italic;
     }
 
+    /* ── Advanced chapter ── */
+    .advanced-intro {
+      background: var(--white);
+      border-left: 4px solid var(--red);
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 2.2rem;
+      font-size: .95rem;
+      line-height: 1.7;
+      color: #333;
+    }
+    .advanced-intro strong { color: var(--red); font-weight: 800; }
+    .advanced-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    @media (max-width: 720px) {
+      .advanced-grid { grid-template-columns: 1fr; }
+    }
+    .advanced-card {
+      background: var(--white);
+      padding: 1.7rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: .95rem;
+    }
+    .advanced-card-hd {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+    }
+    .advanced-icon {
+      width: 48px;
+      height: 48px;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--red-bg);
+      border: 1px solid rgba(204,0,0,.12);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .advanced-tag {
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .15rem;
+    }
+    .advanced-card h3 {
+      font-size: 1.06rem;
+      font-weight: 800;
+      letter-spacing: -.005em;
+      margin: 0;
+    }
+    .advanced-desc {
+      font-size: .9rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+    .advanced-use {
+      background: var(--bg);
+      border-left: 3px solid var(--red);
+      padding: .75rem .9rem;
+      font-size: .86rem;
+      line-height: 1.55;
+      color: #333;
+    }
+    .advanced-use strong {
+      display: block;
+      color: var(--red);
+      font-weight: 800;
+      font-size: .68rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: .3rem;
+    }
+    .advanced-example {
+      font-size: .82rem;
+      color: var(--mid);
+      font-style: italic;
+      padding: 0 .2rem;
+      line-height: 1.55;
+    }
+    .advanced-example strong {
+      color: var(--black);
+      font-style: normal;
+      font-weight: 700;
+    }
+    .advanced-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      margin-top: auto;
+      padding-top: .3rem;
+      color: var(--red);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .advanced-link:hover { text-decoration: underline; }
+    .meta-callout {
+      background: linear-gradient(135deg, #111 0%, #2a0a0a 100%);
+      color: var(--white);
+      padding: 1.6rem 1.6rem;
+      margin-top: 2rem;
+      border-left: 4px solid var(--red);
+      font-size: .92rem;
+      line-height: 1.65;
+    }
+    .meta-callout strong { color: var(--red); }
+    .meta-callout em { font-style: normal; color: #ccc; }
+
     /* ── Course callouts ── */
     .course-link {
       display: flex;
@@ -477,6 +595,7 @@
     <li><a href="#use-cases">Use Cases</a></li>
     <li><a href="#templates">Templates</a></li>
     <li><a href="#tips">Tips</a></li>
+    <li><a href="#advanced">Advanced</a></li>
     <li><a href="#practice">Practice</a></li>
   </ul>
 </nav>
@@ -929,10 +1048,131 @@ UK English spelling. Confident but honest tone — flag risks early, don't dress
   </div>
 </section>
 
-<!-- ══ PRACTICE ══ -->
-<section id="practice" class="bg-light">
+<!-- ══ ADVANCED ══ -->
+<section id="advanced" class="bg-light">
   <div class="container">
-    <span class="section-label">Chapter 6</span>
+    <span class="section-label">Chapter 6 · Advanced</span>
+    <h2>Going AI-Native</h2>
+    <p class="section-intro">
+      The chat box gets you started — but the real edge is putting Claude <em>inside</em> your tools, your reports, and your partner experience. This is what an AI-native Account Manager looks like.
+    </p>
+
+    <div class="advanced-intro">
+      <strong>Why this matters:</strong> Your role spans spreadsheets, decks, marketing collateral, and partner communications. An AI-native AM doesn't switch tools to switch tasks — Claude follows you everywhere. The four capabilities below cover roughly 80% of the documents and assets you'll create at Suunto.
+    </div>
+
+    <div class="advanced-grid">
+
+      <!-- Claude for Excel -->
+      <article class="advanced-card">
+        <div class="advanced-card-hd">
+          <div class="advanced-icon">📊</div>
+          <div>
+            <div class="advanced-tag">Microsoft Excel · Add-in</div>
+            <h3>Claude for Excel</h3>
+          </div>
+        </div>
+        <p class="advanced-desc">
+          A sidebar inside Excel that reads your multi-tab workbook, explains formulas with cell-level citations, builds pivot tables, fixes broken references, and updates assumptions without breaking dependencies.
+        </p>
+        <div class="advanced-use">
+          <strong>For your role at Suunto</strong>
+          Build sell-through trackers across your top UK accounts. Pressure-test demand forecasts. Generate a clean "early-warning" view when an account drops below trend. Reconcile last quarter's actuals against plan in minutes, not hours.
+        </div>
+        <div class="advanced-example">
+          <strong>Try this:</strong> "Look at the Sell-Through tab. Flag any retailer whose Suunto Race weekly units have dropped more than 20% over the last four weeks, and tell me the most likely reason based on the activation calendar on Sheet 3."
+        </div>
+        <a href="https://support.claude.com/en/articles/12650343-use-claude-for-excel" target="_blank" rel="noopener" class="advanced-link">Set up the add-in →</a>
+      </article>
+
+      <!-- Claude for PowerPoint & PDFs -->
+      <article class="advanced-card">
+        <div class="advanced-card-hd">
+          <div class="advanced-icon">📑</div>
+          <div>
+            <div class="advanced-tag">PowerPoint · Word · PDF</div>
+            <h3>Claude for Decks &amp; Documents</h3>
+          </div>
+        </div>
+        <p class="advanced-desc">
+          Generate fully editable <em>.pptx</em>, <em>.docx</em>, <em>.xlsx</em>, and <em>.pdf</em> files directly from a conversation — pulling from PDFs, spreadsheets, or a live URL. Shared context flows between Excel and PowerPoint so your data and your deck stay in sync.
+        </p>
+        <div class="advanced-use">
+          <strong>For your role at Suunto</strong>
+          Turn your raw QBR data into an 8-slide deck with executive summary, hero charts, and speaker notes. Generate a polished PDF account plan to leave behind after a meeting. Build training handouts for retail staff in your brand template.
+        </div>
+        <div class="advanced-example">
+          <strong>Try this:</strong> "Using the data in last quarter's tracker and these meeting notes, build a 6-slide QBR deck for Snow + Rock: title slide, Q3 recap, top wins, one honest risk, Q4 plan, and asks. Then export it as a PDF I can email afterwards."
+        </div>
+        <a href="https://www.anthropic.com/news/claude-for-excel-powerpoint" target="_blank" rel="noopener" class="advanced-link">Learn more →</a>
+      </article>
+
+      <!-- Claude Design -->
+      <article class="advanced-card">
+        <div class="advanced-card-hd">
+          <div class="advanced-icon">🎨</div>
+          <div>
+            <div class="advanced-tag">Visuals · Brand · Canva</div>
+            <h3>Claude Design</h3>
+          </div>
+        </div>
+        <p class="advanced-desc">
+          Describe what you need — slide, one-pager, prototype, social asset — and Claude produces an editable version. It can apply Suunto's design system so everything looks on-brand, and exports to PDF, PPTX, URL, or Canva for further polish.
+        </p>
+        <div class="advanced-use">
+          <strong>For your role at Suunto</strong>
+          A one-page Suunto Race S launch flyer for a retailer's window display. An in-store POS card for a weekend activation. A clean leave-behind comparing Suunto vs Garmin for buyer meetings. All without waiting on the design team.
+        </div>
+        <div class="advanced-example">
+          <strong>Try this:</strong> "Design a one-page A4 leave-behind for buyers introducing the Suunto Ocean dive computer. Suunto branding, hero image at top, three USPs, RRP and trade margin, our marketing support, and an opening order recommendation."
+        </div>
+        <a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank" rel="noopener" class="advanced-link">Open Claude Design →</a>
+      </article>
+
+      <!-- Claude Code -->
+      <article class="advanced-card">
+        <div class="advanced-card-hd">
+          <div class="advanced-icon">💻</div>
+          <div>
+            <div class="advanced-tag">Code · Websites · Portals</div>
+            <h3>Claude Code</h3>
+          </div>
+        </div>
+        <p class="advanced-desc">
+          Conversational software development. Describe a website or app and Claude Code builds it — design, code, and deployment. No previous coding experience required. The same tool, by the way, that built <em>this</em> site for you.
+        </p>
+        <div class="advanced-use">
+          <strong>For your role at Suunto</strong>
+          A private partner portal for your top 5 retailers showing their live QBR scorecard. A microsite for a flagship product launch that you send to buyers instead of a deck. An interactive training site for retail staff. Build it in an afternoon, refresh it quarterly.
+        </div>
+        <div class="advanced-example">
+          <strong>Try this:</strong> "Build me a single-page customer portal for Snow + Rock that shows their YTD sell-in vs plan, top 5 SKUs, the activation calendar for next quarter, and Suunto's upcoming launch roadmap. Use our branding. I'll send them a private link."
+        </div>
+        <a href="https://www.anthropic.com/claude-code" target="_blank" rel="noopener" class="advanced-link">Learn about Claude Code →</a>
+      </article>
+
+    </div>
+
+    <div class="meta-callout">
+      <strong>The shift in mindset.</strong> A traditional AM <em>does</em> the work — writes the email, builds the deck, makes the flyer. An <strong>AI-native AM directs</strong> the work — and uses the time saved to spend more hours with buyers, on shop floors, and at customer events. That's the part of the job no AI can do, and it's where you win.
+    </div>
+
+    <a href="https://anthropic.skilljar.com/introduction-to-claude-cowork" target="_blank" rel="noopener" class="course-link">
+      <div class="course-link-icon">🚀</div>
+      <div class="course-link-body">
+        <div class="course-link-label">Free course · Anthropic Academy</div>
+        <div class="course-link-title">Introduction to Claude Cowork</div>
+        <div class="course-link-desc">The bridge between basic chat and these advanced workflows — learn how Claude can work directly with your files, folders, and applications.</div>
+      </div>
+      <div class="course-link-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- ══ PRACTICE ══ -->
+<section id="practice" class="bg-white">
+  <div class="container">
+    <span class="section-label">Chapter 7</span>
     <h2>Practice Scenarios</h2>
     <p class="section-intro">Try these realistic Suunto UK situations to build confidence before using Claude on live accounts.</p>
     <div class="practice-grid">
